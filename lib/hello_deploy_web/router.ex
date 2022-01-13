@@ -17,12 +17,6 @@ defmodule HelloDeployWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", HelloDeployWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", HelloDeployWeb do
   #   pipe_through :api
@@ -74,6 +68,8 @@ defmodule HelloDeployWeb.Router do
 
   scope "/", HelloDeployWeb do
     pipe_through [:browser, :require_authenticated_user]
+
+    get "/", PageController, :index
 
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
