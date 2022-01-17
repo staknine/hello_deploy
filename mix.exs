@@ -20,7 +20,7 @@ defmodule HelloDeploy.MixProject do
   def application do
     [
       mod: {HelloDeploy.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:honeybadger, :logger, :runtime_tools]
     ]
   end
 
@@ -50,7 +50,8 @@ defmodule HelloDeploy.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:hackney, "~> 1.18"}
+      {:hackney, "~> 1.18"},
+      {:honeybadger, "~> 0.18.1"}
     ]
   end
 

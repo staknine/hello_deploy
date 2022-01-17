@@ -1,5 +1,6 @@
 defmodule HelloDeployWeb.Router do
   use HelloDeployWeb, :router
+  use Honeybadger.Plug
 
   import HelloDeployWeb.UserAuth
 
