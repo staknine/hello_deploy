@@ -44,6 +44,27 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :logger,
+  # or other Logger level
+  level: :info,
+  backends: [LogflareLogger.HttpBackend]
+
+config :logflare_logger_backend,
+  # https://api.logflare.app is configured by default and you can set your own url
+  url: "https://api.logflare.app",
+  # Default LogflareLogger level is :info. Note that log messages are filtered by the :logger application first
+  level: :info,
+  # your Logflare API key, found on your dashboard
+  api_key: "...",
+  # the Logflare source UUID, found  on your Logflare dashboard
+  source_id: "...",
+  # minimum time in ms before a log batch is sent
+  flush_interval: 1_000,
+  # maximum number of events before a log batch is sent
+  max_batch_size: 50,
+  # optionally you can drop keys if they exist with `metadata: [drop: [:list, :keys, :to, :drop]]`
+  metadata: :all
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 

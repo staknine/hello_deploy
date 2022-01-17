@@ -51,7 +51,8 @@ defmodule HelloDeploy.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:hackney, "~> 1.18"},
-      {:honeybadger, "~> 0.18.1"}
+      {:honeybadger, "~> 0.18.1"},
+      {:logflare_logger_backend, "~> 0.11.0"}
     ]
   end
 
